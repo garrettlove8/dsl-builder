@@ -1,0 +1,2 @@
+init:
+	echo hey
