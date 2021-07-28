@@ -1,5 +1,5 @@
 # Glove CLI
 
-This is my first C prject. It is a simple CLI application that demonstrates some interesting aspects of working with the C programming language.
+Small CLI written in C. Functionality is centered around automating some things that I do over and over when developing.
 
-...More to come...
+Main reason for writing this is learning C.
