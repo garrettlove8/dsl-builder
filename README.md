@@ -12,3 +12,5 @@ Main reason for writing this is learning C.
 [ ] C project init command
 
 [ ] Go project init command
+
+[ ] Testing suite
