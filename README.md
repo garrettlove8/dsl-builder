@@ -6,7 +6,7 @@ Main reason for writing this is learning C.
 
 ## Todo List
 [ ] Simple processing of arguments
-
+sss
 [ ] CLI Installation process
 
 [ ] C project init command
