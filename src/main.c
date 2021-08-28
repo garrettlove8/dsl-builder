@@ -29,20 +29,20 @@
 	4. Follow tree and executute functions that correspond to the commands
 */
 
-typedef struct cmdNode {
+struct CmdNode {
 	char *cmd;
-	struct cmdNode *child;
-	struct cmdNode (*fn)();
+	struct CmdNode *child;
+	struct CmdNode (*fn)();
 	char name;
-} cmdNode;
+};
 
-cmdNode *rootCmd;
-char *tokens[];
+// struct CmdNode* rootCmd;
+char* tokens[];
 
 int createNode(char *text) {
 	printf("text: %s\n", text);
 
-	cmdNode *cmd = malloc(sizeof(cmdNode));
+	struct CmdNode *cmd = malloc(sizeof(struct CmdNode));
 
 	cmd->cmd = text;
 
@@ -53,7 +53,7 @@ int createNode(char *text) {
 
 int main(int argc, char *argv[]) {
 	// Create the tree's root command
-	rootCmd = malloc(sizeof(cmdNode));
+	struct CmdNode rootCmd;
 
 	// for(int a = 0; a <= ) {
 
