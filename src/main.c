@@ -30,8 +30,8 @@
 */
 
 struct CmdNode {
-	char *cmd;
-	struct CmdNode *child;
+	char* cmd;
+	struct CmdNode* child;
 	struct CmdNode (*fn)();
 	char name;
 };
