@@ -1,65 +1,72 @@
 #include <stdio.h>
-#include <stdarg.h>
 #include <stdlib.h>
-
-// TODO: Questions:
-// 1. I'm currently just writing code, knowing that I'll have to refactor later, How should this be refactored to fit the strucutre of an idiomatic C program?
-// 2. How do you use third-party packages (or are they called libraries in C)?
-// 3. How do you create your on library in C?
+#include <stdarg.h>
+#include "token.h"
 
 /*
-	--- Sample Input ---
-	glove init c -name first
-	glove init go -name first
+	Challenges:
+		- Users have created a semantic model, we need to be able to use their
+		model to run the DSL	
+	
+	token_t -> userObj
+	Maybe not: Use polymorphism to allow the caller to override the function I am defining as the action function of the token type
 */
 
-/*
-	1. Create a map to be used as the root
-	2. Tokenize args
-	3. Create tree structure with args
-		- command structure
-			{ 
-				cmd: string // command name as key
-				child: cmd
-				fn: function -> cmd
-				...args
-				name: string
-				...args
-			}
-	4. Follow tree and executute functions that correspond to the commands
-*/
+// --- Job Model ---
+typedef struct {
+	char* name;
+} job_t;
 
-struct CmdNode {
-	char* cmd;
-	struct CmdNode* child;
-	struct CmdNode (*fn)();
-	char name;
-};
+int job_create(void* objPtr, ...);
 
-// struct CmdNode* rootCmd;
-char* tokens[];
+int main(void) {
+	symbols_t symbolTable;
+	symbolTable.funcOne = *job_create;
 
-int createNode(char *text) {
-	printf("text: %s\n", text);
+	token_t myStruct;
+	job_t myJob;
 
-	struct CmdNode *cmd = malloc(sizeof(struct CmdNode));
+	// symbolTable.funcOne(&myJob, "hey1", "hey2", "hey3", "hey4", "hey5", "hey6", "hey7", "hey8", NULL);
+	// symbolTable.funcOne(&myJob, "hey1", "hey2");
+	symbolTable.funcOne(&myJob, "Manager", NULL);
+	// symbolTable.funcOne(&myJob, NULL);
+	// job_create(&myJob, "Garrett");
 
-	cmd->cmd = text;
-
-	printf("cmd: %s\n", cmd->cmd);
+	printf("Job name: %s", myJob.name);
 
 	return EXIT_SUCCESS;
 }
 
-int main(int argc, char *argv[]) {
-	// Create the tree's root command
-	struct CmdNode rootCmd;
+int job_create(void* objPtr, ...) {
+	char* name;
+	job_t* jobPtr;
 
-	// for(int a = 0; a <= ) {
+	jobPtr = (job_t*)objPtr;
 
-	// }
+	int i = 0;
 
-	int parseResult = parseArgs(argv[1]);
+	va_list args;
+	printf("args bytes: %lu\n", sizeof(args));
 	
+	va_start(args, objPtr);
+	void* arg;
+
+	while(arg) {
+		arg = va_arg(args, void*);
+		if (arg == NULL) {
+			break;
+		}
+
+		printf("arg: %s\n", (char*)arg);
+
+		if (i == 0) {
+			jobPtr->name = (char*)arg;
+		}
+
+		i++;
+	}
+
+	va_end(args);
+
 	return EXIT_SUCCESS;
 }
