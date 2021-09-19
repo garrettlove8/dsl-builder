@@ -8,14 +8,14 @@ init:
 	touch src/main.c
 
 make build:
-	cc -o bin/glove src/main.c
+	gcc -o bin/$(EXEC) src/main.c
 
 make run:
 	@printf '%s\n' "--- Building ---"
-	cc -o .tmp/glove src/main.c
+	gcc -o .tmp/$(EXEC) src/main.c
 
 	@printf '\n%s\n' "--- Running ---"
-	.tmp/glove
+	.tmp/$(EXEC)
 
 	@printf '\n%s\n' "--- Cleaning ---"
-	rm .tmp/glove
+	rm .tmp/$(EXEC)
