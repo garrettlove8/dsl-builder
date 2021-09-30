@@ -7,12 +7,12 @@ init:
 	touch CHANGELOG.md
 	touch src/main.c
 
-make build:
-	gcc -o bin/$(EXEC) src/main.c
+build:
+	gcc -o bin/$(EXEC) src/*.c
 
-make run:
+run:
 	@printf '%s\n' "--- Building ---"
-	gcc -o .tmp/$(EXEC) src/main.c
+	gcc -o .tmp/$(EXEC) src/*.c
 
 	@printf '\n%s\n' "--- Running ---"
 	.tmp/$(EXEC)
