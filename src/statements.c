@@ -12,15 +12,15 @@ void* stalloc() {
 	return calloc(1, MODEL_OBJ_CAPACITY);
 };
 
-statement_t NewStatement(char* text) {
+statement_t newStatement(char* text) {
 	statement_t statement;
 
-	strcpy(statement.text, text);
+	// strcpy(statement.full, text);
 	statement.obj = stalloc();
 
 	return statement;
 };
 
-void DeleteStatement(statement_t* statement) {
+void deleteStatement(statement_t* statement) {
 	stfree(statement);
 };
