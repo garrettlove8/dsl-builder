@@ -1,17 +1,14 @@
-#ifndef SCRIPT_H
-#define SCRIPT_H
+package script
 
 // script_t represents a complete DSL script and provides an API for running a script.
-typedef struct {
+type script struct {
 	// full is a pointer which points to the complete script.
-	char* full;
+	full string
 
 	// sep is a character array which holds the character on which a developer intends
 	// for statements to be terminated.
-	char sep[2];
-} script_t;
+	sep [2]string
+}
 
 // run allows a developer to execute a DSL script.
-void* run(script_t*);
-
-#endif
+func run(script *script) {}
