@@ -1,27 +1,24 @@
-#ifndef TOKEN_H
-#define TOKEN_H
+package token
 
 // token_t represents a single lexical unit (token) in a DSL statement.
-typedef struct {
+type token struct {
 	// lexUnit is a string representation of the token's lexical unit.
-	char* lexUnit;
+	lexUnit string
 
 	// fn is the function the carries out the instructions of a speicific
 	// token.
-	void* (*fn)(void*);
+	fn interface{} // TODO: this should be changed to not be an interface type
 
 	// statement is the statement of which a token is a part.
-	statement_t* statement;
+	statement interface{} // TODO: this should be changed to not be an interface type
 
 	// previous is the token in a statement directly before the current one.
-	token_t* previous;
+	previous *token
 
 	// next is the token in a statement directly after the current one.
-	token_t* next;
-} token_t;
+	next *token
+}
 
 // execute calls the function located at token_t->fn.
 // This is how a token's logic is executed by a statement.
-void* execute(token_t*);
-
-#endif
+func execute(token *token) {}
