@@ -1,19 +1,19 @@
 package statement
 
 // statement_t is a single statement within a larger DSL script.
-type statement struct {
+type Statement struct {
 	// full is a pointer to the complete string of text making up the statement.
-	full string
+	Full string
 
 	// obj is a pointer to the statements memory region.
 	// As the statement is executed, this is where the results will be stored.
-	obj interface{}
+	Obj interface{}
 }
 
 // newStatement constructs a statement object - inluding the allocation of
 // its memory region.
-func newStatement(text string) (*statement, error) {
-	statement := statement{}
+func newStatement(text string) (*Statement, error) {
+	statement := Statement{}
 
 	// // strcpy(statement.full, text);
 	// statement.obj = stalloc();
@@ -22,19 +22,19 @@ func newStatement(text string) (*statement, error) {
 }
 
 // deleteStatement destructs a statement - including its memory region.
-func deleteStatement(statement *statement) {
+func deleteStatement(statement *Statement) {
 	// stfree(statement);
 }
 
 // parseStatement creates the token structures found in the statement base
 // on the lexical units.
-func parseStatement(statement *statement) {}
+func parseStatement(statement *Statement) {}
 
 // executeStatement runs the statement's logic by running each tokens function
 // keeping track of the effects of each on the statement's memory region.
-func executeStatement(statement *statement) {}
+func executeStatement(statement *Statement) {}
 
-func stfree(statement *statement) {
+func stfree(statement *Statement) {
 	// free(statement->obj);
 }
 
