@@ -1,4 +1,4 @@
-package script
+package dsl
 
 // script_t represents a complete DSL script and provides an API for running a script.
 type script struct {
