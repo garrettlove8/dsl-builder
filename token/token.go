@@ -1,6 +1,6 @@
 package token
 
-import "dsl-builder/internal/statement"
+import "dsl-builder/statement"
 
 // token_t represents a single lexical unit (token) in a DSL statement.
 type token struct {
