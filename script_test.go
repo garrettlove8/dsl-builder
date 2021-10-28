@@ -1,7 +1,7 @@
 package dsl_test
 
 import (
-	"dsl-builder/pkg/dsl"
+	"dsl-builder"
 	"testing"
 )
 
