@@ -1,6 +1,4 @@
-package token
-
-import "dsl-builder/internal/statement"
+package lexer
 
 // token_t represents a single lexical unit (token) in a DSL statement.
 type token struct {
@@ -25,7 +23,7 @@ type token struct {
 // Currently, there is not much of a difference between using this function and manually
 // creating a new token struct instance. However, this function has been added because
 // It is expected that there will be a difference in the future (ex. Validation or some sort).
-func NewToken(literal string, fn func(...interface{}) interface{}, statement *statement.Statement, previous *token, next *token) (*token, error) {
+func NewToken(literal string, fn func(...interface{}) interface{}, statement *Statement, previous *token, next *token) (*token, error) {
 	// TODO: Instead of taking in a statement it shoudl take in an interface of some kind.
 
 	newToke := token{
