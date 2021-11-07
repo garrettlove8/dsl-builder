@@ -7,9 +7,14 @@ import (
 
 // Run allows a developer to execute a DSL script.
 func Run(userScript, sep string) error {
-	script := lexer.New(userScript, sep)
+	script := lexer.NewScript(userScript, sep)
 
-	fmt.Println(script)
+	statements, err := script.ParseScript()
+	if err != nil {
+		fmt.Errorf("Unable to create run DSL: %v\n", err)
+	}
+
+	fmt.Println("dsl:Run:statements: ", statements[0])
 
 	return nil
 }
