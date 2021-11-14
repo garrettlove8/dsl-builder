@@ -1,16 +1,5 @@
-# Glove CLI
+# DSL Builder
 
-Small CLI written in C. Functionality is centered around automating some things that I do over and over when developing.
+DSL Builder is a tool for building your own DSL. Currently, it provides facilities for providing symbols and logic for those symbols, as well as actually running a script.
 
-Main reason for writing this is learning C.
-
-## Todo List
-[ ] Simple processing of arguments
-
-[ ] CLI Installation process
-
-[ ] C project init command
-
-[ ] Go project init command
-
-[ ] Testing suite
+More to come...
