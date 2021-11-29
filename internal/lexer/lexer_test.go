@@ -7,12 +7,12 @@ import (
 
 // TestWriteObj ensures successful writing to a statement's in-memory object.
 func TestLexer(t *testing.T) {
-	st := lexer.NewSymbolTable()
-	st.AddSymbol("Keywords", "CREATE", "CREATE")
-	st.AddSymbol("Keywords", "user", "user")
-	st.AddSymbol("Delimiters", "DQUOTE", `"`)
+	lexer.AddSymbol("CREATE", "CREATE")
+	lexer.AddSymbol("user", "user")
+	lexer.AddSymbol("DQUOTE", `"`)
+	lexer.AddSymbol("IDENT", "IDENT")
 
-	lex := lexer.NewLexer(st, `
+	lex := lexer.NewLexer(`
 		CREATE user "Garrett"
 	`)
 
