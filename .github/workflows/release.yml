@@ -1,8 +1,6 @@
-name: Go
+name: Release
 
-on:
-  push:
-    branches: [ main ]
+on: workflow_dispatch
 
 jobs:
 
@@ -25,3 +23,4 @@ jobs:
     - uses: go-semantic-release/action@v1
       with:
         github-token: ${{ secrets.RELEASE_TOKEN }}
+        allow-initial-development-versions: true
