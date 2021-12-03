@@ -19,11 +19,6 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-      
-    - uses: go-semantic-release/action@v1
-      with:
-        github-token: ${{ secrets.RELEASE_TOKEN }}
-        allow-initial-development-versions: true
   release:
     runs-on: ubuntu-latest
     steps:
